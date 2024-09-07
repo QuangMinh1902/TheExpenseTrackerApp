@@ -7,18 +7,20 @@ import AllExpenses from './ios/TheExpenseTrackerApp/screens/AllExpenses';
 import ManageExpenses from './ios/TheExpenseTrackerApp/screens/ManageExpenses';
 import {GlobalStyles} from './ios/TheExpenseTrackerApp/constants/styles';
 import React from 'react';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+Icon.loadFont();
 
 const Stack = createNativeStackNavigator();
 const BottomTabs = createBottomTabNavigator();
 
 // Định nghĩa các icon component ra ngoài hàm ExpensesOverview
 const RecentExpensesIcon = ({color, size}) => (
-  <MaterialIcons name="house" size={size} color={color} />
+  <Icon name="comments" size={size} color={color} />
 );
 
 const AllExpensesIcon = ({color, size}) => (
-  <MaterialIcons name="calendar-today" size={size} color={color} />
+  <Icon name="times" size={size} color={color} />
 );
 
 function ExpensesOverview() {
