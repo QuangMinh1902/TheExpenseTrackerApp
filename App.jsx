@@ -71,7 +71,7 @@ export default function App() {
               headerShown: false,
             }}
           />
-          <Stack.Screen name="ManageExpenses" component={ManageExpenses} />
+          {/* <Stack.Screen name="ManageExpenses" component={ManageExpenses} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </>
