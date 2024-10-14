@@ -8,6 +8,7 @@ import ManageExpenses from './ios/TheExpenseTrackerApp/screens/ManageExpenses';
 import {GlobalStyles} from './ios/TheExpenseTrackerApp/constants/styles';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import IconButton from './ios/TheExpenseTrackerApp/components/UI/IconButton';
 
 Icon.loadFont();
 
@@ -35,6 +36,14 @@ function ExpensesOverview() {
           backgroundColor: GlobalStyles.colors.primary500,
         },
         tabBarActiveTintColor: GlobalStyles.colors.accent500,
+        headerRight: ({tintColor}) => (
+          <IconButton
+            icon="plus"
+            size={20}
+            color={tintColor}
+            onPress={() => {}}
+          />
+        ),
       }}>
       <BottomTabs.Screen
         name="RecentExpenses"
@@ -71,7 +80,7 @@ export default function App() {
               headerShown: false,
             }}
           />
-          {/* <Stack.Screen name="ManageExpenses" component={ManageExpenses} /> */}
+          <Stack.Screen name="ManageExpenses" component={ManageExpenses} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

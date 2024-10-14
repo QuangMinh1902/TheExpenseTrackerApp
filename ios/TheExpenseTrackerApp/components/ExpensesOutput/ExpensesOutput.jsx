@@ -31,19 +31,19 @@ const DUMMY_EXPENSES = [
   },
   {
     id: 'e5',
-    description: 'A book',
+    description: 'Bleach',
     amount: 14.99,
     date: new Date('2021-03-10'),
   },
   {
     id: 'e6',
-    description: 'A book',
+    description: 'Naruto',
     amount: 14.99,
     date: new Date('2023-05-11'),
   },
   {
     id: 'e7',
-    description: 'A book',
+    description: 'Ynuyasha',
     amount: 14.99,
     date: new Date('2022-04-13'),
   },
