@@ -24,27 +24,40 @@ const AllExpensesIcon = ({color, size}) => (
   <Icon name="times" size={size} color={color} />
 );
 
+function HeaderRight({tintColor, navigation}) {
+  console.log('tintColor :', tintColor);
+  return (
+    <IconButton
+      icon="plus"
+      size={20}
+      color={tintColor}
+      onPress={() => {
+        navigation.navigate('ManageExpense');
+      }}
+    />
+  );
+}
+
+function ExpensesOverviewScreenOptions({navigation}) {
+  return {
+    headerStyle: {
+      backgroundColor: GlobalStyles.colors.primary500,
+    },
+    headerTintColor: 'white',
+    tabBarStyle: {
+      backgroundColor: GlobalStyles.colors.primary500,
+    },
+    tabBarActiveTintColor: GlobalStyles.colors.accent500,
+    headerRight: ({tintColor}) => (
+      <HeaderRight tintColor={tintColor} navigation={navigation} />
+    ),
+  };
+}
+
 function ExpensesOverview() {
   return (
     <BottomTabs.Navigator
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: GlobalStyles.colors.primary500,
-        },
-        headerTintColor: 'white',
-        tabBarStyle: {
-          backgroundColor: GlobalStyles.colors.primary500,
-        },
-        tabBarActiveTintColor: GlobalStyles.colors.accent500,
-        headerRight: ({tintColor}) => (
-          <IconButton
-            icon="plus"
-            size={20}
-            color={tintColor}
-            onPress={() => {}}
-          />
-        ),
-      }}>
+      screenOptions={props => ExpensesOverviewScreenOptions(props)}>
       <BottomTabs.Screen
         name="RecentExpenses"
         component={RecentExpenses}
@@ -72,7 +85,11 @@ export default function App() {
     <>
       <StatusBar style="auto" />
       <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator
+          screenOptions={{
+            headerStyle: {backgroundColor: GlobalStyles.colors.primary500},
+            headerTintColor: 'white',
+          }}>
           <Stack.Screen
             name="ExpensesOverview"
             component={ExpensesOverview}
@@ -80,7 +97,13 @@ export default function App() {
               headerShown: false,
             }}
           />
-          <Stack.Screen name="ManageExpenses" component={ManageExpenses} />
+          <Stack.Screen
+            name="ManageExpense"
+            component={ManageExpenses}
+            options={{
+              presentation: 'modal',
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
